@@ -18,10 +18,13 @@
 include_once("/usr/share/nginx/html/web/functions/database.php");
 $bdd = new database();
 $old = $_POST['old'];
-$new = $_POST['new'];
-$newAgain = $_POST['newAgain'];
-$res = 'false';
-$res = $bdd->changePassword($old, $new, $newAgain);
+// Vérification côté serveur que un nouveau mot de passe aie bien été attribué.
+if (strlen($_POST['new']) > 15) {
+    $new = $_POST['new'];
+    $newAgain = $_POST['newAgain'];
+    $res = 'false';
+    $res = $bdd->changePassword($old, $new, $newAgain);
+}
 ?>
 
 <form name="redirect" method="post" action="<?php echo 'http://localhost:8080/index.php?page=editPassword"' ?>"
