@@ -5,7 +5,9 @@ docker stop sti_project || true && docker rm sti_project || true
 
 #Cette commande permet de télécharger l’image docker nécessaire au bon fonctionnement du site, puis de lancer un container avec cette image.
 #Si un service tourne déjà sur le port 8080, vous pouvez sans autre le modifier.
-docker run -ti -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
+#docker run -ti -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
+docker run -ti -v "$PWD/site":/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
+
 
 #ces lignes lancent les services web et php
 docker exec -u root sti_project service nginx start

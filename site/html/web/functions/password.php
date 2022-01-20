@@ -24,7 +24,7 @@ $res = 'false';
 $res = $bdd->changePassword($old, $new, $newAgain);
 ?>
 
-<form name="redirect" method="post" action="<?php echo 'http://localhost:8080/index.php?page=editPassword"' ?>"
+<form name="redirect" method="post" action="<?php echo '/index.php?page=editPassword"' ?>"
       enctype="multipart/form-data">
     <input type="hidden" name="result" value="<?php echo $res ?>">
     <script language="JavaScript">document.redirect.submit();</script>

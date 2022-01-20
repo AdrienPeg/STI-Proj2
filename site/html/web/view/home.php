@@ -80,29 +80,19 @@ header('Content-type: text/html; charset=utf-8');
                 <h2 align="center">Projet STI</h2> </br> </br>
                 <h5 align="center">Auteurs : Adrien Peguiron, Nicolas Viotti</h5>
 
-                <form action="<?php echo '?page=messages' ?>" method="post">
-                    <input type="hidden" name="userid" value="<?php echo $_SESSION['id']; ?>"/>
-                    <input class='btn btn-secondary btn-sm' type="submit" value="Boite de réception"/>
-                </form>
-                <form action="<?php echo '?page=writeMessage' ?>" method="post">
-                    <input type="hidden" name="userid" value="<?php echo $_SESSION['id']; ?>"/>
-                    <input class='btn btn-secondary btn-sm' type="submit" value="Nouveau message"/>
-                </form>
-                <form action="<?php echo '?page=editPassword' ?>" method="post">
-                    <input type="hidden" name="userid" value="<?php echo $_SESSION['id']; ?>"/>
-                    <input class='btn btn-secondary btn-sm' type="submit" value="Editer le mot de passe"/>
-                </form>
-                <?php if (isset($_SESSION['type']) && $_SESSION['type'] == 'admin') { //Vérification que la session est celle d'un admin?>
-                    <form action="<?php echo '?page=users' ?>" method="post">
-                        <input type="hidden" name="userid" value="<?php echo $_SESSION['id']; ?>"/>
-                        <input class='btn btn-secondary btn-sm' type="submit" value="Liste des utilisateurs"/>
-                    </form>
-                    <form action="<?php echo '?page=newUser' ?>" method="post">
-                        <input type="hidden" name="userid" value="<?php echo $_SESSION['id']; ?>"/>
-                        <input class='btn btn-secondary btn-sm' type="submit" value="Créer un nouvel utilisateur"/>
-                    </form>
+                <input class='btn btn-secondary btn-sm' value="Boite de réception" onclick="window.location.href='../../index.php?page=messages';"/>
+                </br>
+                <input class='btn btn-secondary btn-sm' value="Nouveau message" onclick="window.location.href='../../index.php?page=writeMessage';"/>
+                </br>
+                <input class='btn btn-secondary btn-sm' value="Editer le mot de passe" onclick="window.location.href='../../index.php?page=editPassword';"/>
+                </br>
 
+                <?php if (isset($_SESSION['type']) && $_SESSION['type'] == 'admin') { //Vérification que la session est celle d'un admin?>
+                    <input class='btn btn-secondary btn-sm' value="Liste des utilisateurs" onclick="window.location.href='../../index.php?page=users';"/>
+                    </br>
+                    <input class='btn btn-secondary btn-sm' value="Créer un nouvel utilisateur" onclick="window.location.href='../../index.php?page=newUser';"/>
                 <?php } ?>
+
             </div>
         </div>
     </div>
