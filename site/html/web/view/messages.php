@@ -60,6 +60,7 @@ $bdd->verifyUser(); //Vérifie que la session est celle d'un utilisateur
                 <td>
                     <form action="/web/functions/delete.php" method="post">
                         <input type="hidden" name="deleteMessageTab" value="<?php echo $message['id']; ?>"/>
+                        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
                         <input class='btn btn-danger btn-sm' type="submit" value="Delete"/>
                     </form>
                 </td>

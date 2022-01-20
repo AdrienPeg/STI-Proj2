@@ -17,14 +17,15 @@
 ################################################################
 include_once("/usr/share/nginx/html/web/functions/database.php");
 $bdd = new database();
-
+$res = false;
 $username = $_POST['username'];
 $password = $_POST['password'];
 $passwordAgain = $_POST['passwordAgain'];
 $validity = $_POST['validity'];
 $role = $_POST['role'];
-
-$res = $bdd->createUser($username, $password, $passwordAgain, $validity, $role);
+if ($_POST['token'] == $_SESSION['token'] && strlen($password) >= 15) {
+    $res = $bdd->createUser($username, $password, $passwordAgain, $validity, $role);
+}
 ?>
 <form name="redirect" method="post" action="<?php echo '/index.php?page=newUser"' ?>"
       enctype="multipart/form-data">

@@ -17,11 +17,15 @@
 ################################################################
 include_once("/usr/share/nginx/html/web/functions/database.php");
 $bdd = new database();
+
 $old = $_POST['old'];
-$new = $_POST['new'];
-$newAgain = $_POST['newAgain'];
-$res = 'false';
-$res = $bdd->changePassword($old, $new, $newAgain);
+$res = false;
+// Vérification côté serveur que un nouveau mot de passe aie bien été attribué et vérification de CSRF.
+if (strlen($_POST['new']) >= 15 && $_POST['token'] == $_SESSION['token']) {
+    $new = $_POST['new'];
+    $newAgain = $_POST['newAgain'];
+    $res = $bdd->changePassword($old, $new, $newAgain);
+}
 ?>
 
 <form name="redirect" method="post" action="<?php echo '/index.php?page=editPassword"' ?>"

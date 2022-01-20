@@ -77,7 +77,7 @@ header('Content-type: text/html; charset=utf-8');
     <div class="container">
         <div class="row">
             <div align="center" style="height:400px;">
-                <h1 align="center">Bienvenue sur la messagerie </h1>
+                <h1 align="center">Bienvenue sur la messagerie</h1>
                 <h2 align="center">Projet STI</h2> </br> </br>
                 <h5 align="center">Auteurs : Adrien Peguiron, Nicolas Viotti</h5>
 
