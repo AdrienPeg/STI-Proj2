@@ -60,9 +60,12 @@ $redirect = $bdd->verifyAdmin(); //Vérifie que la session soit celle d'un admin
                                            disabled="disabled" value="<?php echo $user['username']; ?>">
                                 </p>
                                 <p>
-                                    <label for="password">Mot de passe :</label>
-                                    <input type="text" name="password" id="password" class="form-control" required
-                                           value="<?php echo $user['password']; ?>">
+                                    <label for="password">Nouveau mot de passe</label>
+                                    <input type="password" name="passwordOne" id="password" class="form-control">
+                                </p>
+                                <p>
+                                    <label for="password">Confirmer novueau mot de passe</label>
+                                    <input type="password" name="passwordTwo" id="password" class="form-control">
                                 </p>
                                 <p>
                                     <label for="valid">Validité :</label>
