@@ -54,15 +54,15 @@ $bdd->verifyUser(); //Vérifie que la session est celle d'un utilisateur
                                 } ?>
                                 <p>
                                     <label for="sujet">Ancien mot de passe</label>
-                                    <input type="text" name="old" id="old" class="form-control" required>
+                                    <input type="password" name="old" id="old" class="form-control" required>
                                 </p>
                                 <p>
                                     <label for="sujet">Nouveau mot de passe</label>
-                                    <input type="text" name="new" id="new" class="form-control" required>
+                                    <input type="password" name="new" id="new" class="form-control" required>
                                 </p>
                                 <p>
                                     <label for="message">Répéter le nouveau mot de passe</label>
-                                    <input type="text" name="newAgain" id="newAgain" class="form-control" required>
+                                    <input type="password" name="newAgain" id="newAgain" class="form-control" required>
                                 </p>
                                 <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
                                 <button class="btn btn-secondary btn-md" onclick="history.go(-1);">Back </button>

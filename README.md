@@ -99,7 +99,7 @@ Un utilisateur par défaut est disponible avec les identifiants suivant:
 
 Nom d'utilisateur : `collaborateur`, 
 
-Mot de passe : `motdepassesecure`.
+Mot de passe : `qwertzuiop12345`.
 
 La page principale est la suivante :
 

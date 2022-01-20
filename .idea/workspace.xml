@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fd7e307-1792-4815-b584-7d2361012190" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/databases/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/site/databases/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/functions/createUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/createUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/functions/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/functions/editUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/editUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/functions/password.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/functions/send.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/send.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/html/web/view/editPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/editPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/view/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/messages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/html/web/view/newUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/newUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/view/userEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/userEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/view/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/html/web/view/writeMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/writeMessage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +53,7 @@
       <workItem from="1642704838720" duration="1551000" />
       <workItem from="1642706777550" duration="29000" />
       <workItem from="1642706808895" duration="4621000" />
+      <workItem from="1642714971841" duration="60000" />
     </task>
     <servers />
   </component>

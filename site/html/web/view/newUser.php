@@ -61,11 +61,11 @@ $redirect = $bdd->verifyAdmin(); //Vérifie que la session soit celle d'un admin
                                 </p>
                                 <p>
                                     <label for="password">Mot de passe</label>
-                                    <input type="text" name="password" id="password" class="form-control" required>
+                                    <input type="password" name="password" id="password" class="form-control" required>
                                 </p>
                                 <p>
                                     <label for="passwordAgain">Entrez à nouveau le mot de passe</label>
-                                    <input type="text" name="passwordAgain" id="Again" class="form-control" required>
+                                    <input type="password" name="passwordAgain" id="Again" class="form-control" required>
                                 </p>
                                 <p>
                                     <label for="validity">Validité :</label>
