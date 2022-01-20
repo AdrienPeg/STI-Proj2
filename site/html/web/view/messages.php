@@ -58,7 +58,7 @@ $bdd->verifyUser(); //Vérifie que la session est celle d'un utilisateur
                 ?>
                 <!-- Création du bouton delete / edit dans le tableau qui supprimera / editera la ligne à laquelle il est -->
                 <td>
-                    <form action="web/functions/delete.php" method="post">
+                    <form action="/web/functions/delete.php" method="post">
                         <input type="hidden" name="deleteMessageTab" value="<?php echo $message['id']; ?>"/>
                         <input class='btn btn-danger btn-sm' type="submit" value="Delete"/>
                     </form>

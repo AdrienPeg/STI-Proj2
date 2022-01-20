@@ -36,33 +36,38 @@ $bdd->verifyUser(); //Vérification que la session est celle d'un utilisateur
 
             <?php
             $messageid = $_POST['messageDetailsTab'];
-            $message = $bdd->getMessage($messageid);
+            if ($bdd->verifyUserMessage($messageid) == true){
+                $message = $bdd->getMessage($messageid);
 
 
-            //Création du tableau qui contiendra nos données
-            echo "<table class='table'>
-						<tr>
-						<th>ID Message</th>
-						<th>Date de réception</th>
-						<th>Expéditeur</th>
-						<th>Sujet</th>
-						</tr>
-						";
+                //Création du tableau qui contiendra nos données
+                echo "<table class='table'>
+                            <tr>
+                            <th>ID Message</th>
+                            <th>Date de réception</th>
+                            <th>Expéditeur</th>
+                            <th>Sujet</th>
+                            </tr>
+                            ";
 
-            //Création d'une boucle qui ira chercher les données demandées et les affichera dans un tableau
+                //Création d'une boucle qui ira chercher les données demandées et les affichera dans un tableau
 
-            echo "<tr>";
-            echo "<td>" . $message['id'] . "</td>";
-            echo "<td>" . $message['date'] . "</td>";
-            echo "<td>" . $message['id_expediteur'] . "</td>";
-            echo "<td>" . $message['subject'] . "</td>";
-            echo "</tr>";
-            echo "<th> Corps </th>";
-            echo "<tr>";
-            echo "<td>" . $message['body'] . "</td>";
-            echo "</tr>";
+                echo "<tr>";
+                echo "<td>" . $message['id'] . "</td>";
+                echo "<td>" . $message['date'] . "</td>";
+                echo "<td>" . $message['id_expediteur'] . "</td>";
+                echo "<td>" . $message['subject'] . "</td>";
+                echo "</tr>";
+                echo "<th> Corps </th>";
+                echo "<tr>";
+                echo "<td>" . $message['body'] . "</td>";
+                echo "</tr>";
 
-            echo "</table>";
+                echo "</table>";
+            }
+            else{
+                echo "You do not have access to this message";
+            }
             ?>
             <button class="btn btn-secondary btn-md" onclick="history.go(-1);">Back </button>
     </div>

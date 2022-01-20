@@ -67,6 +67,7 @@ class database
      */
     public function unlogin()
     {
+        session_regenerate_id();
         session_destroy();
     }
 
@@ -306,4 +307,20 @@ class database
         }
     }
 
+    public function verifyUserMessage($messageid)
+    {
+        try{
+            $userid = $_SESSION['id'];
+            $messages = $this->getMessages($userid);
+            // on contrôle que le message accédé soit bien accessible par l'utilisateur
+            foreach ($messages as $mess) {
+                if($messageid == $mess['id']){
+                    return true;
+                }
+            }
+            return false;
+        }catch (Exception $e) {
+            return null;
+        }
+    }
 }
