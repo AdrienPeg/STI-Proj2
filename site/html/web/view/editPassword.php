@@ -38,7 +38,7 @@ $bdd->verifyUser(); //Vérifie que la session est celle d'un utilisateur
 ?>
 <div id="ajout-articles">
     <div style="border-bottom: 1px solid #C4C3C3;" class="container" id="formulaire">
-        <h1 style="text-decoration: underline;">Ecrire un message :
+        <h1 style="text-decoration: underline;">Modifier le mot de passe :
             <h1>
                 <h4>
                     <!-- Création du formulaire -->

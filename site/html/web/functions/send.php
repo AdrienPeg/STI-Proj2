@@ -27,4 +27,4 @@ $body = htmlspecialchars($_POST['message']);
 
 $bdd->sendMessage($idSender, $idReceiver, $subject, $date, $body);
 
-header("Location: http://localhost:8080/index.php?page=home");
+header("Location: /index.php?page=home");
