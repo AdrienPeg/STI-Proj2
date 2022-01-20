@@ -43,9 +43,12 @@ class database
     {
         try {
             $this->connect();
-            $stmt = $this->bdd->query("SELECT * FROM Utilisateurs WHERE username ='" . $username . "' AND valid ='1'");
+            $stmt = $this->bdd->prepare("SELECT * FROM Utilisateurs WHERE username = ? AND valid ='1'");
+            $stmt->bindValue(1, $username, PDO::PARAM_STR);
+            $stmt->execute();
             $result = $stmt->fetch();
             $this->disconnect();
+
             if (isset($result) && $password == $result['password']) {
                 $_SESSION['type'] = $result['type'];
                 $_SESSION['username'] = $username;
@@ -80,7 +83,9 @@ class database
     {
         try {
             $this->connect();
-            $this->bdd->exec("DELETE FROM Message WHERE Message.id='" . $idMessage . "'");
+            $stmt = $this->bdd->prepare("DELETE FROM Message WHERE Message.id = ?");
+            $stmt->bindValue(1, $idMessage, PDO::PARAM_INT);
+            $stmt->execute();
             $this->disconnect();
         } catch (Exception $e) {
             $this->disconnect();
@@ -98,7 +103,9 @@ class database
     {
         try {
             $this->connect();
-            $this->bdd->exec("DELETE FROM Utilisateurs WHERE id ='" . $idUser . "'");
+            $stmt = $this->bdd->prepare("DELETE FROM Utilisateurs WHERE id = ?");
+            $stmt->bindValue(1, $idUser, PDO::PARAM_INT);
+            $stmt->execute();
             $this->disconnect();
         } catch (Exception $e) {
             $this->disconnect();
@@ -114,7 +121,9 @@ class database
     public function getMessages($idUser)
     {
         $this->connect();
-        $stmt = $this->bdd->query("SELECT * FROM Message WHERE id_recepteur='" . $idUser . "'");
+        $stmt = $this->bdd->prepare("SELECT * FROM Message WHERE id_recepteur = ?");
+        $stmt->bindValue(1, $idUser, PDO::PARAM_INT);
+        $stmt->execute();
         $messages = $stmt->fetchAll();
         $this->disconnect();
         return $messages;
@@ -128,7 +137,9 @@ class database
     public function getMessage($idMessage)
     {
         $this->connect();
-        $stmt = $this->bdd->query("SELECT * FROM Message WHERE id='" . $idMessage . "'");
+        $stmt = $this->bdd->prepare("SELECT * FROM Message WHERE id = ?");
+        $stmt->bindValue(1, $idMessage, PDO::PARAM_INT);
+        $stmt->execute();
         $message = $stmt->fetch();
         $this->disconnect();
         return $message;
@@ -147,7 +158,13 @@ class database
     {
         try {
             $this->connect();
-            $this->bdd->exec("INSERT INTO `Message` (`id`, `date`, `id_expediteur`, `subject`, `body`, `id_recepteur`) VALUES (NULL, '$date', '$idSender', '$subject', '$body', '$idReceiver')");
+            $stmt = $this->bdd->prepare("INSERT INTO `Message` (`id`, `date`, `id_expediteur`, `subject`, `body`, `id_recepteur`) VALUES (NULL, ?, ?, ?, ?, ?)");
+            $stmt->bindValue(1, $date, PDO::PARAM_STR);
+            $stmt->bindValue(2, $idSender, PDO::PARAM_INT);
+            $stmt->bindValue(3, $subject, PDO::PARAM_STR);
+            $stmt->bindValue(4, $body, PDO::PARAM_STR);
+            $stmt->bindValue(5, $idReceiver, PDO::PARAM_INT);
+            $stmt->execute();
             $this->disconnect();
         } catch (Exception $e) {
             $this->disconnect();
@@ -162,7 +179,8 @@ class database
     public function getAllUsers()
     {
         $this->connect();
-        $stmt = $this->bdd->query("SELECT * FROM Utilisateurs");
+        $stmt = $this->bdd->prepare("SELECT * FROM Utilisateurs");
+        $stmt->execute();
         $users = $stmt->fetchAll();
         $this->disconnect();
         return $users;
@@ -176,7 +194,9 @@ class database
     public function getUsernameFromId($id)
     {
         $this->connect();
-        $stmt = $this->bdd->query("SELECT username FROM Utilisateurs WHERE id='" . $id . "'");
+        $stmt = $this->bdd->prepare("SELECT username FROM Utilisateurs WHERE id = ?");
+        $stmt->bindValue(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
         $username = $stmt->fetch();
         $this->disconnect();
         return $username;
@@ -193,10 +213,15 @@ class database
     {
         try {
             $this->connect();
-            $stmt = $this->bdd->query("SELECT *FROM Utilisateurs WHERE id='" . $_SESSION['id'] . "'");
+            $stmt = $this->bdd->prepare("SELECT * FROM Utilisateurs WHERE id = ?");
+            $stmt->bindValue(1, $_SESSION['id'], PDO::PARAM_INT);
+            $stmt->execute();
             $user = $stmt->fetch();
             if ($user['password'] == $oldPassword && $newPassword == $newPasswordAgain && $oldPassword != $newPassword) {
-                $this->bdd->exec("UPDATE Utilisateurs SET password='" . $newPassword . "' WHERE id='" . $_SESSION['id'] . "'");
+                $stmt = $this->bdd->prepare("UPDATE Utilisateurs SET password = ? WHERE id = ?");
+                $stmt->bindValue(1, $newPassword, PDO::PARAM_STR);
+                $stmt->bindValue(2, $_SESSION['id'], PDO::PARAM_INT);
+                $stmt->execute();
                 $this->disconnect();
                 return true;
             } else {
@@ -227,7 +252,12 @@ class database
                 return false;
             }
             $this->connect();
-            $res = $this->bdd->exec("INSERT INTO `Utilisateurs` (`id`, `username`, `password`, `valid`, `type`) VALUES (NULL, '$username', '$password', '$valid', '$type')");
+            $stmt = $this->bdd->prepare("INSERT INTO `Utilisateurs` (`id`, `username`, `password`, `valid`, `type`) VALUES (NULL, ?, ?, ?, ?)");
+            $stmt->bindValue(1, $username, PDO::PARAM_STR);
+            $stmt->bindValue(2, $password, PDO::PARAM_STR);
+            $stmt->bindValue(3, $valid, PDO::PARAM_INT);
+            $stmt->bindValue(4, $type, PDO::PARAM_STR);
+            $res = $stmt->execute();
             $this->disconnect();
             return $res;
         } catch (Exception $e) {
@@ -245,7 +275,9 @@ class database
     {
         try {
             $this->connect();
-            $stmt = $this->bdd->query("SELECT * FROM Utilisateurs WHERE id='" . $id . "'");
+            $stmt = $this->bdd->prepare("SELECT * FROM Utilisateurs WHERE id = ?");
+            $stmt->bindValue(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
             $user = $stmt->fetch();
             $this->disconnect();
             return $user;
@@ -268,7 +300,12 @@ class database
     {
         try {
             $this->connect();
-            $res = $this->bdd->exec("UPDATE Utilisateurs SET password='" . $password . "', valid='" . $valid . "', type='" . $type . "' WHERE id='" . $id . "'");
+            $stmt = $this->bdd->prepare("UPDATE Utilisateurs SET password = ?, valid = ?, type = ? WHERE id = ?");
+            $stmt->bindValue(1, $password, PDO::PARAM_STR);
+            $stmt->bindValue(2, $valid, PDO::PARAM_INT);
+            $stmt->bindValue(3, $type, PDO::PARAM_STR);
+            $stmt->bindValue(4, $id, PDO::PARAM_INT);
+            $res = $stmt->execute();
             $this->disconnect();
             return $res;
         } catch (Exception $e) {
@@ -285,7 +322,7 @@ class database
     {
         try {
             if (!isset($_SESSION['type']) || $_SESSION['type'] != 'admin' || $_SESSION['loggedin'] == false) {
-                header("Location: http://localhost:8080/index.php?page=home");
+                header("Location: /index.php?page=home");
             }
         } catch (Exception $e) {
             return null;
@@ -300,7 +337,7 @@ class database
     {
         try {
             if (!isset($_SESSION['type']) || ($_SESSION['type'] != 'admin' && $_SESSION['type'] != 'user') || $_SESSION['loggedin'] == false) {
-                header("Location: http://localhost:8080/index.php?page=home");
+                header("Location: /index.php?page=home");
             }
         } catch (Exception $e) {
             return null;
