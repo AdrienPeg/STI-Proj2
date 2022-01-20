@@ -49,7 +49,8 @@ class database
             $result = $stmt->fetch();
             $this->disconnect();
 
-            if (isset($result) && $password == $result['password']) {
+
+            if (isset($result) && password_verify($password, $result['password'])) {
                 $_SESSION['type'] = $result['type'];
                 $_SESSION['username'] = $username;
                 $_SESSION['id'] = $result['id'];
@@ -217,9 +218,9 @@ class database
             $stmt->bindValue(1, $_SESSION['id'], PDO::PARAM_INT);
             $stmt->execute();
             $user = $stmt->fetch();
-            if ($user['password'] == $oldPassword && $newPassword == $newPasswordAgain && $oldPassword != $newPassword) {
+            if (password_verify($oldPassword, $user['password']) && $newPassword == $newPasswordAgain) {
                 $stmt = $this->bdd->prepare("UPDATE Utilisateurs SET password = ? WHERE id = ?");
-                $stmt->bindValue(1, $newPassword, PDO::PARAM_STR);
+                $stmt->bindValue(1, password_hash($newPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 $stmt->bindValue(2, $_SESSION['id'], PDO::PARAM_INT);
                 $stmt->execute();
                 $this->disconnect();
@@ -254,7 +255,7 @@ class database
             $this->connect();
             $stmt = $this->bdd->prepare("INSERT INTO `Utilisateurs` (`id`, `username`, `password`, `valid`, `type`) VALUES (NULL, ?, ?, ?, ?)");
             $stmt->bindValue(1, $username, PDO::PARAM_STR);
-            $stmt->bindValue(2, $password, PDO::PARAM_STR);
+            $stmt->bindValue(2, password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
             $stmt->bindValue(3, $valid, PDO::PARAM_INT);
             $stmt->bindValue(4, $type, PDO::PARAM_STR);
             $res = $stmt->execute();
@@ -301,10 +302,34 @@ class database
         try {
             $this->connect();
             $stmt = $this->bdd->prepare("UPDATE Utilisateurs SET password = ?, valid = ?, type = ? WHERE id = ?");
-            $stmt->bindValue(1, $password, PDO::PARAM_STR);
+            $stmt->bindValue(1, password_hash($password,PASSWORD_DEFAULT), PDO::PARAM_STR);
             $stmt->bindValue(2, $valid, PDO::PARAM_INT);
             $stmt->bindValue(3, $type, PDO::PARAM_STR);
             $stmt->bindValue(4, $id, PDO::PARAM_INT);
+            $res = $stmt->execute();
+            $this->disconnect();
+            return $res;
+        } catch (Exception $e) {
+            $this->disconnect();
+            return null;
+        }
+    }
+
+    /**
+     * Permet l'édition des données d'une utilisateur sans le mot de passe
+     * @param $id
+     * @param $valid
+     * @param $type
+     * @return null
+     */
+    public function editUserWithoutPass($id, $valid, $type)
+    {
+        try {
+            $this->connect();
+            $stmt = $this->bdd->prepare("UPDATE Utilisateurs SET valid = ?, type = ? WHERE id = ?");
+            $stmt->bindValue(1, $valid, PDO::PARAM_INT);
+            $stmt->bindValue(2, $type, PDO::PARAM_STR);
+            $stmt->bindValue(3, $id, PDO::PARAM_INT);
             $res = $stmt->execute();
             $this->disconnect();
             return $res;

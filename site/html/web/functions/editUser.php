@@ -17,16 +17,28 @@
 ################################################################
 include_once("/usr/share/nginx/html/web/functions/database.php");
 $bdd = new database();
-$res = false;
 
-$id = $_POST['id'];
-$password = $_POST['password'];
-$valid = $_POST['valid'];
-$type = $_POST['type'];
-//Vérification de CSRF et de la politique de mot de passe
-if ($_POST['token'] == $_SESSION['token'] && strlen($password) >= 15) {
-    $res = $bdd->editUser($id, $password, $valid, $type);
+
+
+$res = false;
+if ($_POST['token'] == $_SESSION['token'] && isset($_POST['id']) && isset($_POST['valid']) && isset($_POST['type'])) {
+    $id = $_POST['id'];
+    $valid = $_POST['valid'];
+    $type = $_POST['type'];
+
+    if (isset($_POST['passwordOne']) && !empty($_POST['passwordOne']) && isset($_POST['passwordTwo']) && !empty($_POST['passwordTwo'])){ // L'utilisateur demande aussi de changer le mot de passe
+        $passwordOne = $_POST['passwordOne'];
+        $passwordTwo = $_POST['passwordTwo'];
+
+        if (strlen($passwordOne) >= 15 && $passwordOne == $passwordTwo)
+            $res = $bdd->editUser($id, $passwordOne, $valid, $type);
+    } else {
+        $res = $bdd->editUserWithoutPass($id, $valid, $type);
+    }
 }
+
+
+
 ?>
 
 <form name="redirect" method="post" action="<?php echo '/index.php?page=userEdit"' ?>"
