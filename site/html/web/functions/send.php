@@ -25,6 +25,8 @@ $idSender = $_SESSION['id'];
 $date = date("d/m/Y H:i");
 $body = htmlspecialchars($_POST['message']);
 
-$bdd->sendMessage($idSender, $idReceiver, $subject, $date, $body);
-
+//Vérification de CSRF
+if ($_POST['token'] == $_SESSION['token']) {
+    $bdd->sendMessage($idSender, $idReceiver, $subject, $date, $body);
+}
 header("Location: /index.php?page=home");

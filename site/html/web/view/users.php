@@ -57,6 +57,7 @@ $redirect = $bdd->verifyAdmin(); //Vérifie que la session soit celle d'un admin
                 <td>
                     <form action="web/functions/delete.php" method="post">
                         <input type="hidden" name="deleteUserTab" value="<?php echo $user['id']; ?>"/>
+                        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
                         <input class='btn btn-danger btn-sm' type="submit" value="Delete"/>
                     </form>
                 </td>

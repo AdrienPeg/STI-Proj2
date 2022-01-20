@@ -17,12 +17,13 @@
 ################################################################
 include_once("/usr/share/nginx/html/web/functions/database.php");
 $bdd = new database();
+
 $old = $_POST['old'];
-// Vérification côté serveur que un nouveau mot de passe aie bien été attribué.
-if (strlen($_POST['new']) > 15) {
+$res = false;
+// Vérification côté serveur que un nouveau mot de passe aie bien été attribué et vérification de CSRF.
+if (strlen($_POST['new']) >= 15 && $_POST['token'] == $_SESSION['token']) {
     $new = $_POST['new'];
     $newAgain = $_POST['newAgain'];
-    $res = 'false';
     $res = $bdd->changePassword($old, $new, $newAgain);
 }
 ?>

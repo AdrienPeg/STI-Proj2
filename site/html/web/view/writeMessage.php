@@ -55,7 +55,8 @@ $bdd->verifyUser();
                                         foreach ($users as $row) {
                                             if (isset($_POST['answerTab']) && $_POST['answerTab'] == $row['id']) {
                                                 //Si le message est une réponse à un autre, l'utilisateur sélectionné par défaut est celui à qui répondre
-                                                echo "<option value='{row['id']}'selected='selected'>{$row['username']}</option>";
+                                                echo "<option value='{$row['id']}'selected='selected'>{$row['username']}</option>";
+                                                break;
                                             } else {
                                                 if ($row['id'] != $_SESSION['id']) {
                                                     echo "<option value='{$row['id']}'>{$row['username']}</option>";
@@ -73,6 +74,7 @@ $bdd->verifyUser();
                                     <label for="message">Message</label>
                                     <input type="text" name="message" id="message" class="form-control" required>
                                 </p>
+                                <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
                                 <button class="btn btn-secondary btn-md" onclick="history.go(-1);">Back </button>
                                 <input class='btn btn-secondary btn-md' type="submit" value="Envoyer"
                                        style="float:right;"/>

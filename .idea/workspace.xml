@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8fd7e307-1792-4815-b584-7d2361012190" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/site/databases/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/site/databases/database.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/functions/createUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/createUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/functions/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/functions/editUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/editUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/functions/password.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/functions/send.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/functions/send.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/editPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/editPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/newUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/newUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/userEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/userEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/html/web/view/writeMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/html/web/view/writeMessage.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23yEF38fFcqocrUUmLWPs6IUJ3o" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fd7e307-1792-4815-b584-7d2361012190" name="Changes" comment="" />
+      <created>1642697830681</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642697830681</updated>
+      <workItem from="1642697840410" duration="3057000" />
+      <workItem from="1642704838720" duration="1551000" />
+      <workItem from="1642706777550" duration="29000" />
+      <workItem from="1642706808895" duration="4621000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

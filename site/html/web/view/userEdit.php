@@ -91,6 +91,7 @@ $redirect = $bdd->verifyAdmin(); //Vérifie que la session soit celle d'un admin
                                         ";
                                     </select>
                                 </p>
+                                <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
                                 <button class="btn btn-secondary btn-md" onclick="history.go(-1);">Back </button>
                                 <input type="hidden" name="id" id="id" class="form-control" required
                                        value="<?php echo $user['id']; ?>">

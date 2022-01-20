@@ -18,7 +18,7 @@ Vous arrivez ensuite sur la page de login suivante : ![login](figures/login.png)
 
 ### Manuel Administrateur
 
-Le compte administrateur est `admin` avec comme mot de passe `admin`. 
+Le compte administrateur est `admin` avec comme mot de passe `adminadminadmin`. 
 
 Une fois les credentials entrés, vous arrivez sur la page principale du site : 
 
@@ -38,13 +38,15 @@ La page suivante s'ouvre :
 
 Les champ `nom d'utilisateur` et `mot de passe` sont pour les informations de connexion du nouvel utilisateur.
 
+Le mot de passe doit faire un minimum de 15 caractères
+
 le champ de vérification de mot de passe permets de s'assurer que le mot de passe a bien été saisi.
 
 Le champ `Validité` définit si l'utilisateur est valide ou non. Un utilisateur non valide existe dans le système mais il ne peut pas se connecter au site.
 
 Et finalement le champs Rôle permet de définir si un utilisateur sera un simple collaborateur ou un administrateur. 
 
-Une fois ces champs remplis, appuyez sur le bouton `Créer`et un nouvel utilisateur sera ajouter à la base de données.
+Une fois ces champs remplis, appuyez sur le bouton `Créer` et un nouvel utilisateur sera ajouté à la base de données.
 
 ### Lister les utilisateurs
 
@@ -67,7 +69,7 @@ Pour le modifier, cliquez sur `Edit`. La page suivante s'ouvre :
 
 ![login](figures/edit_user.png)
 
-Ici, vous pouvez modifier le mot de passe, la validité et le rôle d'un utilisateur. Son nom d'utilisateur n'est pas modifiable. Une fois les modifications réalisées, appuyez sur `Modifier`. Si vous souhaitez annuler, appuyez sur `Back`
+Ici, vous pouvez modifier le mot de passe, la validité et le rôle d'un utilisateur. Son nom d'utilisateur n'est pas modifiable. Le mot de passe doit faire au moins 15 caractères. Une fois les modifications réalisées, appuyez sur `Modifier`. Si vous souhaitez annuler, appuyez sur `Back`
 
 ### Éteindre le site
 
@@ -97,7 +99,7 @@ Un utilisateur par défaut est disponible avec les identifiants suivant:
 
 Nom d'utilisateur : `collaborateur`, 
 
-Mot de passe : `1234`.
+Mot de passe : `motdepassesecure`.
 
 La page principale est la suivante :
 
@@ -155,4 +157,4 @@ Si vous souhaitez modifier votre mot de passe, cliquez sur le bouton `Editer le 
 
 ![login](figures/edit_password.png)
 
-Une fois sur cette page, entrez d'abord votre ancien mot de passe, puis entrez le nouveau et vérifiez le. Une fois le bouton `Changer` appuyé, le mot de passe est modifié.
+Une fois sur cette page, entrez d'abord votre ancien mot de passe, puis entrez le nouveau et vérifiez le. Une fois le bouton `Changer` appuyé, le mot de passe est modifié. Le mot de passe doit faire au moins 15 caractères.
