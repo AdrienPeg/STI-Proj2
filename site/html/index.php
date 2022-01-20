@@ -15,8 +15,8 @@
 #	Page: index.php (Base de la structure dynamique du site web)
 #
 #################################################################
-
 session_start();
+session_regenerate_id();
 ?>
 
 <html>
